@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.min.css" />
+  </head>
+  <body class="scroll">
+    <h1><span>herc.se/</span>Poster</h1>
+    <label class="search">
+      <input
+        type="text"
+        id="search-input"
+        name="search-input"
+        placeholder="Search..."
+    /></label>
+    <input type="checkbox" id="select-all-checkbox" />
+    <!-- <label for="select-all-checkbox">[Open / Close] for All Cell</label> -->
+    <!-- <div class="">
+      Each of us is an explorer on the journey of "LIFE" and throughout this
+      voyage, we utilize our creations to uncover the world around us.
+    </div> -->
+    <section class="posterlist">
+      <!-- <label>
+        <input type="checkbox" class="" ${isChecked} />
+        <img src="poster/${i[3]}" alt="" />
+        <div class="">${i[0]} </br>${i[2]}</div>
+      </label> -->
+    </section>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
+    <script>
+      const lenis = new Lenis();
+
+      // lenis.on("scroll", (e) => {
+      //   console.log(e);
+      // });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
