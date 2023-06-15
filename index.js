@@ -6,7 +6,7 @@ const fetchUrl =
 
 function createPosterTemplate(i, isChecked, index) {
   return `<label>
-  <input type="checkbox" class="" ${isChecked} />
+  <input type="checkbox" class="" ${isChecked}a />
   <img src="https://drive.google.com/uc?id=${i[3]}" alt="" />
   <div class="">
     <div class="title">${i[0]}</div>
