@@ -10,7 +10,7 @@
 html,
 body {
   margin: 0;
-  font-size: dots(2);
+  font-size: dots(1.75);
   line-height: 100%;
 }
 body {
@@ -20,33 +20,94 @@ body {
   font-family: "Roboto Mono", "BIZ UDPGothic", monospace;
   box-sizing: border-box;
 }
-h1 {
-  margin: dots(1) 0;
-  font-size: dots(3);
+.title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: dots(1);
+  // margin: dots(1) 0;
+  // font-size: dots(3);
   // text-transform: uppercase;
   font-weight: normal;
+  background-color: white;
+  width: 100%;
   span {
     opacity: 0.3;
   }
 }
-.posterlist {
-  --column: 4;
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: dots(1);
+  font-weight: normal;
+  background-color: white;
+  width: 100%;
+  // transform: translateY(dots(23));
+  transition: transform 1s;
+  &:has(input:checked) {
+    .about {
+      display: block;
+    }
+    // opacity: 0;
+
+    // opacity: 0.5;
+  }
+  .about {
+    margin-top: dots(10);
+    display: none;
+    p {
+      margin-bottom: 0;
+      max-width: dots(100);
+    }
+  }
+  .display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .info {
+      position: relative;
+      input {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .copyright {
+      text-align: right;
+    }
+  }
 }
-@media screen and (max-width: 1200px) {
+.posterlist {
+  margin: 50vh 0;
+  --column: 3;
+}
+@media screen and (max-width: 1000px) {
+  :root {
+    --dot: 7px;
+  }
   .posterlist {
+    margin: dots(30) 0;
+
     --column: 2;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+  :root {
+    --dot: 6.5px;
+  }
   .posterlist {
-    --column: 1;
+    --column: 2;
+    label > div {
+      display: none;
+    }
   }
 }
 .posterlist {
   display: grid;
   grid-template-columns: repeat(var(--column), 1fr);
   gap: dots(1);
-  margin: dots(1) 0;
+  // margin: dots(1) 0;
 
   label {
     transition: opacity 0.8s ease-in-out;
@@ -55,7 +116,7 @@ h1 {
     }
     &:has(input:checked) {
       // opacity: 0;
-      opacity: 0.5;
+      // opacity: 0.5;
     }
   }
 }
@@ -69,9 +130,10 @@ input[type="checkbox"] {
   position: absolute;
 }
 input#search-input {
-  font-size: dots(3);
+  font-size: dots(1.75);
   opacity: 0.3;
   border: 0;
+  background: none;
   &:focus {
     // border: none;
     outline: none;
