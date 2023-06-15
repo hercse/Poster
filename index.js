@@ -104,9 +104,35 @@ function handleSearchInput(event) {
   }
 }
 
+// function displayPosters(posterList, searchTerm) {
+//   posterlistSection.innerHTML = "";
+//   posterList.forEach((i) => {
+//     let isChecked = "";
+
+//     if (searchTerm !== "") {
+//       const regExpChars = /[.*+\-?^${}()|[\]\\]/g;
+//       const escapedSearchTerm = searchTerm.replace(regExpChars, "\\$&");
+//       const regex = new RegExp(escapedSearchTerm, "gi");
+
+//       if (i[0].match(regex)) {
+//         isChecked = "checked";
+//       }
+//     }
+
+//     output = createPosterTemplate(i, isChecked);
+//     wirtein();
+//   });
+// }
+
+// 反轉後
+
 function displayPosters(posterList, searchTerm) {
   posterlistSection.innerHTML = "";
-  posterList.forEach((i) => {
+
+  // 反向排列 posterList
+  const reversedPosterList = posterList.slice().reverse();
+
+  reversedPosterList.forEach((i) => {
     let isChecked = "";
 
     if (searchTerm !== "") {

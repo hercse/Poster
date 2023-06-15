@@ -30,8 +30,21 @@ h1 {
   }
 }
 .posterlist {
+  --column: 4;
+}
+@media screen and (max-width: 1200px) {
+  .posterlist {
+    --column: 2;
+  }
+}
+@media screen and (max-width: 600px) {
+  .posterlist {
+    --column: 1;
+  }
+}
+.posterlist {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--column), 1fr);
   gap: dots(1);
   margin: dots(1) 0;
 
@@ -55,9 +68,9 @@ input[type="checkbox"] {
   opacity: 0;
   position: absolute;
 }
-.search {
-}
 input#search-input {
+  font-size: dots(3);
+  opacity: 0.3;
   border: 0;
   &:focus {
     // border: none;
