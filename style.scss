@@ -12,15 +12,17 @@ body {
   margin: 0;
   font-size: dots(1.75);
   line-height: 100%;
+  color: #fff;
 }
 body {
   padding: dots(1);
+  background-color: #000;
 }
 * {
-  font-family: "Roboto Mono", "BIZ UDPGothic", monospace;
+  font-family: "Space Mono", "BIZ UDPGothic", monospace;
   box-sizing: border-box;
 }
-.title {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -29,7 +31,7 @@ body {
   // font-size: dots(3);
   // text-transform: uppercase;
   font-weight: normal;
-  background-color: white;
+  background-color: #000;
   width: 100%;
   span {
     opacity: 0.3;
@@ -41,7 +43,7 @@ body {
   left: 0;
   padding: dots(1);
   font-weight: normal;
-  background-color: white;
+  background-color: #000;
   width: 100%;
   // transform: translateY(dots(23));
   transition: transform 1s;
@@ -81,6 +83,8 @@ body {
 .posterlist {
   margin: 50vh 0;
   --column: 3;
+  --info-grid: 2;
+  --info-grid-start: 0;
 }
 @media screen and (max-width: 1000px) {
   :root {
@@ -88,8 +92,9 @@ body {
   }
   .posterlist {
     margin: dots(30) 0;
-
+    --info-grid: 1;
     --column: 2;
+    --info-grid-start: 1;
   }
 }
 @media screen and (max-width: 700px) {
@@ -111,12 +116,38 @@ body {
 
   label {
     transition: opacity 0.8s ease-in-out;
-    div {
+    & > div {
       margin: dots(1) 0;
     }
+    .info {
+      display: none;
+      max-width: dots(100);
+    }
     &:has(input:checked) {
-      // opacity: 0;
-      // opacity: 0.5;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: scroll;
+      pointer-events: all;
+      height: 100%;
+      width: 100%;
+      padding: dots(1);
+      background-color: #000;
+      display: grid;
+      grid-template-columns: repeat(var(--info-grid), 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      gap: dots(1);
+      & > div {
+        margin: 0;
+        display: block;
+        grid-row-start: var(--info-grid-start);
+        .info {
+          margin-top: dots(10);
+          display: block;
+        }
+      }
+      img {
+      }
     }
   }
 }
@@ -137,6 +168,6 @@ input#search-input {
   &:focus {
     // border: none;
     outline: none;
-    // border-bottom: 1px black solid;
+    // border-bottom: 1px #fff solid;
   }
 }

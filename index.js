@@ -8,7 +8,11 @@ function createPosterTemplate(i, isChecked, index) {
   return `<label>
   <input type="checkbox" class="" ${isChecked} />
   <img src="https://drive.google.com/uc?id=${i[3]}" alt="" />
-  <div class="">${i[0]} </br>${i[2]}</div>
+  <div class="">
+    <div class="title">${i[0]}</div>
+    <div class="date">${i[2]}</div>
+    <div class="info">${i[1]}</div>
+  </div>
 </label>`;
 }
 

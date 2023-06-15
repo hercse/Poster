@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.min.css" />
   </head>
   <body class="scroll">
-    <div class="title">
+    <div class="header">
       <span>[herc.se] / </span>Poster / *
       <input
         type="text"
@@ -46,11 +46,15 @@
     <section class="posterlist">
       <!-- <label>
         <input type="checkbox" class="" ${isChecked} />
-        <img src="poster/${i[3]}" alt="" />
-        <div class="">${i[0]} </br>${i[2]}</div>
+        <img src="https://drive.google.com/uc?id=${i[3]}" alt="" />
+        <div class="">
+          <div class="title">${i[0]}</div>
+          <div class="date">${i[2]}</div>
+          <div class="info">${i[1]}</div>
+        </div>
       </label> -->
     </section>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.0/bundled/lenis.js"></script>
     <script>
       const lenis = new Lenis();
 
@@ -64,7 +68,7 @@
       }
 
       requestAnimationFrame(raf);
-    </script>
+    </script> -->
     <script src="index.js"></script>
   </body>
 </html>
