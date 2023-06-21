@@ -11,18 +11,23 @@ html,
 body {
   margin: 0;
   font-size: dots(1.75);
-  line-height: 100%;
   color: #fff;
 }
 body {
   padding: dots(1);
   background-color: #000;
 }
+a {
+  color: #fff;
+  text-decoration: none;
+}
 * {
+  line-height: 100%;
   font-family: "Space Mono", "BIZ UDPGothic", monospace;
   box-sizing: border-box;
 }
 .header {
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -38,6 +43,7 @@ body {
   }
 }
 .footer {
+  z-index: 100;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -95,6 +101,11 @@ body {
     --info-grid: 1;
     --column: 2;
     --info-grid-start: 1;
+    &:has(input:checked) {
+      img {
+        margin: dots(50) 0;
+      }
+    }
   }
 }
 @media screen and (max-width: 700px) {
@@ -131,7 +142,7 @@ body {
       pointer-events: all;
       height: 100%;
       width: 100%;
-      padding: dots(1);
+      padding: dots(5) dots(1);
       background-color: #000;
       display: grid;
       grid-template-columns: repeat(var(--info-grid), 1fr);
