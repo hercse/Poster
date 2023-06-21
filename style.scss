@@ -183,3 +183,40 @@ input#search-input {
     // border-bottom: 1px #fff solid;
   }
 }
+
+.posterlist {
+  transition: opacity 1s 0.1s, margin-top 1s cubic-bezier(0.28, 0.66, 0, 1);
+}
+
+// 當開始輸入時，數入筐沒東西時
+body:has(#search-input:placeholder-shown:focus) {
+  .posterlist {
+    opacity: 0.2;
+  }
+}
+// 以輸入後，但還沒搜尋完
+@keyframes searching {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+html:not(:has(#search-input:placeholder-shown)) body:has(#search-input:focus) {
+  .posterlist {
+    transition: opacity 0.5s 0.1s;
+    opacity: 0.5;
+    animation: searching 1.5s 5s ease-in-out infinite alternate;
+    margin-top: 10vh;
+  }
+}
+
+// 搜尋到東西後
+body:not(:has(#search-input:placeholder-shown)),
+body:has(#search-input:focus) {
+  .posterlist {
+    opacity: 1;
+    margin-top: 10vh;
+  }
+}
